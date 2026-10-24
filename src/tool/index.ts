@@ -3,6 +3,7 @@ import { Scissors } from 'lucide-react';
 import type { BatchTool } from '../kit/types';
 import { normalizeColor, outName } from './core';
 import { cutout } from './remove';
+import { Empty, ResultBody } from './ui';
 
 const MIME: Record<string, [string, string]> = { jpg: ['image/jpeg', 'jpg'], png: ['image/png', 'png'], webp: ['image/webp', 'webp'] };
 
@@ -15,6 +16,8 @@ const tool: BatchTool = {
   type: 'media',
   mode: 'batch',
   resultView: 'list',
+  Empty,
+  ResultBody,
   concurrency: 1,
   accept: { label: '商品图', extensions: ['jpg', 'jpeg', 'png', 'webp', 'bmp'] },
   params: [

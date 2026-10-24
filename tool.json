@@ -2,12 +2,13 @@
   "id": "e04",
   "slug": "hd-product-cutout",
   "name": "高清商品抠图",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repo": "campfire-code/hd-product-cutout",
   "license": "MIT",
   "ui": {
-    "layout": "d",
-    "palette": "amber"
+    "layout": "a",
+    "palette": "amber",
+    "accent": "#B03D27"
   },
   "upstream": {
     "repo": "ZhengPeng7/BiRefNet",

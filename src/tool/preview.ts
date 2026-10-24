@@ -3,8 +3,8 @@ import type { Row } from '../kit/runner';
 
 type Kind = 'cup' | 'bottle' | 'fluff' | 'lamp';
 const KINDS: [string, Kind, number][] = [
-  ['保温杯-示例.jpg', 'cup', 205], ['玻璃瓶-示例.jpg', 'bottle', 175], ['毛绒球-示例.png', 'fluff', 20], ['台灯-示例.jpg', 'lamp', 45],
-  ['水杯套装-示例.jpg', 'cup', 330], ['香水瓶-示例.jpg', 'bottle', 280], ['毛线团-示例.png', 'fluff', 350], ['旧图缩略-示例.jpg', 'cup', 0],
+  ['保温杯-蓝.jpg', 'cup', 205], ['玻璃香水瓶.jpg', 'bottle', 175], ['毛绒球挂件.png', 'fluff', 20], ['护眼台灯.jpg', 'lamp', 45],
+  ['陶瓷水杯套装.jpg', 'cup', 330], ['磨砂香水瓶.jpg', 'bottle', 280], ['羊毛线团.png', 'fluff', 350], ['旧图-缩略.jpg', 'cup', 0],
 ];
 
 function draw(kind: Kind, hue: number, bg: 'busy' | 'check') {

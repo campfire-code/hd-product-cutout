@@ -1,0 +1,35 @@
+/* 高清商品抠图：透明图墙。把结果列表改成密排的方块墙，每块可切换底色 */
+.hd-empty { display: grid; justify-items: center; gap: 10px; text-align: center; padding: 28px 20px; }
+.hd-empty h2 { margin: 6px 0 0; font-size: 1.5em; }
+.hd-empty p { margin: 0; color: var(--muted); max-width: 36em; line-height: 1.6; }
+.hd-wall-demo { display: grid; grid-template-columns: repeat(4, 96px); grid-template-rows: 96px; gap: 8px; margin-bottom: 8px; transform: perspective(700px) rotateX(8deg); }
+.hd-wall-demo svg { width: 96px; height: 96px; border-radius: var(--radius); border: 1px solid var(--line); background: repeating-conic-gradient(#d4d7dd 0 25%, #f5f6f8 0 50%) 0 0 / 14px 14px; transition: transform .2s var(--ease); }
+.hd-wall-demo svg.big { box-shadow: 0 0 0 3px var(--primary-soft); border-color: var(--primary); }
+.hd-empty.hover .hd-wall-demo svg { transform: translateY(-4px); }
+.hd-points { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.hd-points li { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px; border-radius: var(--radius-pill); background: var(--primary-soft); font-size: 13px; }
+.hd-points svg { color: var(--primary); }
+.hd-hint { font-size: 13px; }
+
+/* 结果墙 */
+.k-rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 10px; padding: 12px; align-content: start; }
+.k-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 0 4px; padding: 0 0 6px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); }
+.k-row.sel { border-color: var(--primary); }
+.k-row-name { display: contents; }
+.k-row-name > .k-ellipsis { grid-column: 1 / -1; grid-row: 2; padding: 8px 10px 0; font-weight: 600; }
+.k-row-name > small { display: none; }
+.k-row-body { grid-column: 1 / -1; grid-row: 1; margin: 0; }
+.k-row > .k-thumb { grid-column: 1 / -1; grid-row: 1; width: 100%; height: auto; aspect-ratio: 1; border: 0; border-radius: 0; }
+.k-row:has(.hd-cut) > .k-thumb { display: none; }
+.k-row > .k-st { grid-row: 3; grid-column: 1; justify-self: start; margin-left: 8px; max-width: 100%; }
+.k-row > .k-row-actions { grid-row: 3; grid-column: 2; }
+.k-row > .k-icon-btn { grid-row: 3; grid-column: 3; margin-right: 4px; }
+
+.hd-cut { position: relative; display: block; width: 100%; aspect-ratio: 1; padding: 0; border: 0; cursor: pointer; overflow: hidden; transition: background-color .2s var(--ease); }
+.hd-cut.checker { background: repeating-conic-gradient(#d4d7dd 0 25%, #f5f6f8 0 50%) 0 0 / 16px 16px; }
+.hd-cut img { position: absolute; inset: 6%; width: 88%; height: 88%; object-fit: contain; }
+.hd-cut:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.hd-tag, .hd-ground { position: absolute; font-style: normal; font-size: 12px; line-height: 1; padding: 5px 8px; border-radius: var(--radius-pill); background: rgb(20 22 26 / .78); color: #fff; display: inline-flex; align-items: center; gap: 4px; }
+.hd-tag { top: 8px; left: 8px; }
+.hd-ground { bottom: 8px; right: 8px; opacity: 0; transition: opacity .15s ease-out; }
+.hd-cut:hover .hd-ground, .hd-cut:focus-visible .hd-ground { opacity: 1; }
